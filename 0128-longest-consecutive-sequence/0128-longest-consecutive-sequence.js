@@ -1,17 +1,12 @@
-var longestConsecutive = function(nums) {
-    let map = {}
-    for(let i=0;i<nums.length;i++){
-        map[nums[i]] = 1
-    }
-    let res = 0;
-    
-    for(x of nums){
-        let temp = x-1;
-        if(!map[temp]){
-            let y = x + 1;
-            while(map[y]) y++
-            res = Math.max(res, y-x)
-        }
-    }
-    return res
+const longestConsecutive = (nums) => {
+  let maxLength = 0;
+  let set = new Set(nums); //Intialize set with nums array
+
+  for (let num of nums) {
+    if (set.has(num - 1)) continue; // Not the start of a new consecutive list, so skip.
+    let length = 1;
+    while (set.has(num + length)) length++; // Build up the length as we find the next consecutive num
+    maxLength = Math.max(length, maxLength); // Update max
+  }
+  return maxLength;
 };
