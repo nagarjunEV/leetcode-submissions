@@ -1,7 +1,6 @@
 const longestConsecutive = function(nums) {
     let len = nums.length
-    if(len<2) return len;
-    
+    if(len<2) return len;   
     let map = {}
     for(let i=0;i<nums.length;i++){
         map[nums[i]] = 1
