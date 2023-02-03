@@ -3,19 +3,18 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    s = s.split('')
-    stack = []
-    for(let i=0; i<s.length;i++){
+    let len = s.length
+    if(len%2 != 0) return false
+    let stack = []
+    for(let i=0;i<len;i++){
         if(s[i] == '(')
             stack.push(')')
         else if(s[i] == '[')
             stack.push(']')
         else if(s[i] == '{')
             stack.push('}')
-        else{
-            if(stack.pop() != s[i])
-                return false            
-        }
+        else if(s[i] !== stack.pop())
+            return false
     }
-    return !stack.length
+    return stack.length == 0
 };
