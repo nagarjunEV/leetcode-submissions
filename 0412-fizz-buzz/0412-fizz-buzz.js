@@ -1,18 +1,19 @@
-/**
- * @param {number} n
- * @return {string[]}
- */
 var fizzBuzz = function(n) {
-    let res = []
+    let three = 3, five = 5, fifteen = 15, res = [];
     for(let i=1;i<=n;i++){
-        if( i%3==0 && i%5==0 )
-            res.push("FizzBuzz")
-        else if(i%3==0)
-            res.push('Fizz')
-        else if(i%5==0)
-            res.push('Buzz')
-        else
-            res.push(""+i)
+        if(i==fifteen){
+            res.push("FizzBuzz");
+            three += 3;
+            five += 5;
+            fifteen += 15;
+        }else if(i==three){
+            res.push("Fizz");
+            three += 3;
+        }else if(i==five){
+            res.push("Buzz");
+            five += 5; 
+        }else
+            res.push(i.toString());
     }
     return res
 };
