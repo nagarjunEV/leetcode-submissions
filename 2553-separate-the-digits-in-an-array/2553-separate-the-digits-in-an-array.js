@@ -3,5 +3,11 @@
  * @return {number[]}
  */
 var separateDigits = function(nums) {
-    return nums.join('').split('');
+    let str = "", res = [];
+    while(nums.length){
+        str = nums.pop() + str;
+    }
+    for(let i=0;i<str.length;i++)
+        res.push(str[i])
+    return res
 };
