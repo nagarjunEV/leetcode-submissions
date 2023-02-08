@@ -11,14 +11,11 @@
  */
 var deleteMiddle = function(head){
     if(!head || head.next == null) return null;
-    let slow = head, fast = head;
+    let slow = head, fast = head.next.next;
     while(fast && fast.next){
         slow = slow.next;
         fast = fast.next.next;
     }
-    let ptr = head;
-    while(ptr.next!=slow)
-        ptr = ptr.next;
-    ptr.next = slow.next;
+    slow.next = slow.next.next;
     return head
 };
