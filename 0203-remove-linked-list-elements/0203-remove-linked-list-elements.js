@@ -18,5 +18,5 @@ var removeElements = function(head, val) {
         ptr = ptr.next;
     }
     if(head.val == val) return head.next 
-    else return head
+    return head
 };
