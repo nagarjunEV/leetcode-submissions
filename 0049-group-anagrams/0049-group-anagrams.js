@@ -25,13 +25,11 @@ var groupAnagrams = function(strs) {
             key *= primeArr[str[j].charCodeAt(0) - 97]
             j++;
         }
-        sumArr[i] = key
-    }
-    for(let i=0;i<sumArr.length;i++){
-        if(map[sumArr[i]] == undefined)
-            map[sumArr[i]] = [strs[i]]
+        if(map[key] != undefined)
+            map[key].push(strs[i])
         else
-            map[sumArr[i]].push(strs[i])
+            map[key] = [strs[i]]
     }
+    
     return Object.values(map);
 };
