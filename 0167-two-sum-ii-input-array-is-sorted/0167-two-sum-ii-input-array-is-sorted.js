@@ -4,7 +4,8 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    let i = 0, j = nums.length - 1;
+    let i = 0;
+    let j = nums.length - 1;
     while(nums[i]+nums[j] != target){
         if(nums[i]+nums[j] > target)
             j--;
