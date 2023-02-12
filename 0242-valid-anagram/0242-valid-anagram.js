@@ -11,9 +11,5 @@ var isAnagram = function(s, t) {
             map[t[i]] = --map[t[i]]            
         }
     }
-    for(x in map){
-        if(map[x] != 0)
-            return false
-    }        
     return true
 };
