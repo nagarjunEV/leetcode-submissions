@@ -1,11 +1,19 @@
-/**
- * @param {string} s
- * @param {string} t
- * @return {boolean}
- */
 var isAnagram = function(s, t) {
     if(s.length != t.length) return false;
-    s = s.split('').sort().join('');
-    t = t.split('').sort().join('');
-    return s == t;
+    let map = {}
+    for(let i=0;i<s.length;i++)
+        map[s[i]] = map[s[i]] ? ++map[s[i]] : 1
+    
+    for(let i=0;i<t.length;i++){
+        if(!map[t[i]])
+            return false
+        else{
+            map[t[i]] = --map[t[i]]            
+        }
+    }
+    for(x in map){
+        if(map[x] != 0)
+            return false
+    }        
+    return true
 };
