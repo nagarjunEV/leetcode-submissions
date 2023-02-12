@@ -10,9 +10,7 @@ const isPrime = n => {
 
 var groupAnagrams = function(strs) {
     let primeArr = [];
-    primeArr.push(2);
-    primeArr.push(3);
-    let n = 5;
+    let n = 2;
     while(primeArr.length<26){
         if(isPrime(n))
             primeArr.push(n)
