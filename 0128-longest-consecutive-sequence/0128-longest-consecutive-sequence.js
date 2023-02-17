@@ -1,19 +1,15 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var longestConsecutive = function(nums) {
-    let res = 0, map = {};
-    nums.forEach(x => map[x] = 1);
-    
-    for(let i=0;i<nums.length;i++){
-        if(map[nums[i]-1] == undefined){
-            let j = nums[i]+1;
-            while(map[j] == 1){
-                j++;
-            }
-            res = Math.max(res, j-nums[i]);
-        }
+  if (nums == null || nums.length === 0) return 0;
+  const set = new Set(nums);
+  let longest = 0;
+  for (let num of nums) {
+    if (!set.has(num - 1)) {
+      let count = 0;
+      while (set.has(count+num)) {
+        count++;
+      }
+      longest = Math.max(longest,count);
     }
-    return res
+  }
+  return longest;
 };
