@@ -7,13 +7,12 @@ var longestConsecutive = function(nums) {
     nums.forEach(x => map[x] = 1);
     
     for(let i=0;i<nums.length;i++){
-        let num = nums[i];
-        if(map[num-1] == undefined){
-            let j = num+1;
+        if(map[nums[i]-1] == undefined){
+            let j = nums[i]+1;
             while(map[j] == 1){
                 j++;
             }
-            res = Math.max(res, j-num);
+            res = Math.max(res, j-nums[i]);
         }
     }
     return res
