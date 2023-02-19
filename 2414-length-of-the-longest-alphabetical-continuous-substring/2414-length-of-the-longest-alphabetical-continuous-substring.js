@@ -1,20 +1,16 @@
-const getCharCode = n => (n.charCodeAt('0') - 97);
-
+/**
+ * @param {string} s
+ * @return {number}
+ */
 var longestContinuousSubstring = function(s) {
-    let map = {}, res = 1;
-    for(let i=0;i<s.length;i++){
-        let key = getCharCode(s[i])
-        map[key] = map[key] ? map[key].add(i) : new Set().add(i);
-    }
-    
-    for(let i=0;i<s.length;i++){
-        let chKey = getCharCode(s[i]);
-        j = i+1;
-        while(map[chKey+1] && map[chKey+1].has(j)){
-            chKey++;
-            j++;
+    let res = 1
+    for(let i=1;i<s.length;i++){
+        let count = 1
+        while(i<s.length && s.charCodeAt(i-1) + 1 == s.charCodeAt(i)){
+            count++;
+            i++
         }
-        res = Math.max(res, j-i);
+        res = Math.max(res, count)
     }
     return res
 };
