@@ -1,24 +1,17 @@
-/**
- * @param {string} s
- * @return {boolean}
- */
 var checkZeroOnes = function(s) {
-    let zero = 0, one = 0;
+    let one = 0, zero = 0, curr1 = 0, curr0 = 0;
     for(let i=0;i<s.length;i++){
-        let count = 0;
-        while(s[i] == 1){
-            i++
-            count++
+        if(s[i]==0){
+            curr1 = 0;
+            curr0 += 1;
+            if(curr0>zero)
+                zero = curr0 
+        }else{
+            curr0 = 0;
+            curr1 += 1;
+            if(curr1>one)
+                one = curr1
         }
-        one = Math.max(one, count)
     }
-    for(let i=0;i<s.length;i++){
-        let count = 0;
-        while(s[i] == 0){
-            i++
-            count++
-        }
-        zero = Math.max(zero, count)
-    }
-    return one > zero;
+    return one > zero
 };
