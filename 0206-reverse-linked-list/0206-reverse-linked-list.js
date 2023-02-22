@@ -10,16 +10,12 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    if(!head || head.next == null) return head;
-    
-    let prev = null;
-    let curr = head;
-    
+    let curr = head, prev = null;
     while(curr){
-        let next = curr.next;
+        let temp = curr.next;
         curr.next = prev;
         prev = curr;
-        curr = next;
+        curr = temp
     }
     return prev
 };
