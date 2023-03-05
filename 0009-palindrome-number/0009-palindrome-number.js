@@ -4,8 +4,7 @@
  */
 var isPalindrome = function(x) {
     if(x>=0 && x <= 9) return true
-    if(x<0) return false
-    if(x%10 == 0) return false
+    if(x<0 || x%10 == 0) return false
     
     let temp = 0, curr = x;
     while(x){
