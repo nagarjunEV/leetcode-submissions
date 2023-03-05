@@ -19,7 +19,7 @@ var pairSum = function(head) {
     }
     slow = reverseLinkedList(slow);
     
-    while(head && slow){
+    while(slow){
         max = Math.max(head.val + slow.val, max);
         head = head.next;
         slow = slow.next
