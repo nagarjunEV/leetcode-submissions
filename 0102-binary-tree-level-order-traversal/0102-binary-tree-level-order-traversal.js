@@ -1,20 +1,19 @@
 const levelOrder = function(root) {
-    let res = []
-    let q = []
-    q.push(root);
+    if(!root)
+        return []
     
-    while(q.length != 0){
-        const currLen = q.length;
+    let q = [root], res = []
+    
+    while(q.length>0){
+        const currLen = q.length
         let currLevel = []
         for(let i=0;i<currLen;i++){
             let curr = q.shift();
-            if(curr){
-                currLevel.push(curr.val);
-                q.push(curr.left)
-                q.push(curr.right)
-            }
+            currLevel.push(curr.val);
+            if(curr.left) q.push(curr.left)
+            if(curr.right) q.push(curr.right)
         }
-        if(currLevel.length > 0) res.push(currLevel)
+        res.push(currLevel)
     }
     return res
 };
