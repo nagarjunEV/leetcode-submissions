@@ -2,13 +2,7 @@
  * @param {number} n
  * @return {Function} counter
  */
-var createCounter = function(n) {
-    return () => {
-        let curr = n;
-        n += 1;
-        return curr;
-    };
-};
+var createCounter = (n) =>  () => n++;
 
 /** 
  * const counter = createCounter(10)
