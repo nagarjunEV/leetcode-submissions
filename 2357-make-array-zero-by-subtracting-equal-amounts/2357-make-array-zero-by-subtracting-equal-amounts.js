@@ -3,7 +3,10 @@
  * @return {number}
  */
 var minimumOperations = function(nums) {
-    nums = nums.filter(x => x!=0)
-    let s = new Set(nums);
-    return s.size;
+    const obj = {}
+    for(let i=0;i<nums.length;i++){
+        if(!obj[nums[i]] && nums[i] > 0)
+            obj[nums[i]] = 1
+    }
+    return Object.keys(obj).length;
 };
