@@ -1,14 +1,26 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
 var isAnagram = function(s, t) {
-    if(s.length != t.length) return false;
-    let freqArr = new Array(26).fill(0);
-    for(let i=0;i<s.length;i++){
-        let index = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        freqArr[index] += 1;
+    const lettersObj = {}
+    s.split('').forEach(x => {
+       lettersObj[x] = lettersObj[x] ? lettersObj[x] + 1 : 1;
+    });
+    
+    for(let y of t){
+        if(!lettersObj[y])
+            return false;
+        --lettersObj[y];
     }
-    for(let i=0;i<t.length;i++){
-        let index = t[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        freqArr[index] -= 1;
-    }
-    if(freqArr.some(x => x!=0)) return false
-    return true
+    
+
+    for(let key in lettersObj){        
+        if(lettersObj[key] > 0){
+            return false;
+        }
+    };
+    return true;
+    
 };
