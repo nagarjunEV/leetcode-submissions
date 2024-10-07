@@ -5,9 +5,9 @@
  */
 var isAnagram = function(s, t) {
     const lettersObj = {}
-    s.split('').forEach(x => {
+   for(let x of s){
        lettersObj[x] = lettersObj[x] ? lettersObj[x] + 1 : 1;
-    });
+    };
     
     for(let y of t){
         if(!lettersObj[y])
