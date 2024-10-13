@@ -3,12 +3,8 @@
  * @return {string[]}
  */
 
-const areAnagrams = (str1, str2) => {
-   return str1.split("").sort().join("") === str2.split("").sort().join("");
-}
-
 const isAnagram = (str1, str2) => {
-    let anagramObj = {}
+    const anagramObj = {}
     str1.split("").forEach(x => {
         anagramObj[x] = anagramObj[x] ? ++anagramObj[x] : 1
     })
@@ -21,10 +17,8 @@ const isAnagram = (str1, str2) => {
     
     Object.keys(anagramObj).map(z => {
         if(anagramObj[z] > 0)
-            anagramObj = {}
             return false;   
     })
-    anagramObj = {}
     return true;
 }
 
