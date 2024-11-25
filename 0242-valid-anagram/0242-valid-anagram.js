@@ -7,9 +7,7 @@
 var isAnagram = function(s, t) {
     if(s.length != t.length)
         return false
-
     const stObj = {}
-    
     for(let st of s){
         stObj[st] = stObj[st] ? ++stObj[st] : 1;
     }
@@ -20,9 +18,9 @@ var isAnagram = function(s, t) {
         --stObj[ts];
     }
     
-    for (const key of Object.keys(stObj)) {
-        if(stObj[key])
+    Object.values(stObj).some(x => {
+        if(x)
             return false
-    }
+    })
     return true
 };
