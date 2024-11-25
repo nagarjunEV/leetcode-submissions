@@ -3,27 +3,26 @@
  * @param {string} t
  * @return {boolean}
  */
+
 var isAnagram = function(s, t) {
-    const lettersObj = {}
+    if(s.length != t.length)
+        return false
+
+    const stObj = {}
     
-    if(s.length != t.length) return false;
-    
-   for(let x of s){
-       lettersObj[x] = lettersObj[x] ? lettersObj[x] + 1 : 1;
-    };
-    
-    for(let y of t){
-        if(!lettersObj[y])
-            return false;
-        --lettersObj[y];
+    for(let st of s){
+        stObj[st] = stObj[st] ? ++stObj[st] : 1;
     }
     
-
-    for(let key in lettersObj){        
-        if(lettersObj[key] > 0){
-            return false;
-        }
-    };
-    return true;
+    for(let ts of t){
+        if(!stObj[ts])
+            return false
+        --stObj[ts];
+    }
     
+    for (const key of Object.keys(stObj)) {
+        if(stObj[key])
+            return false
+    }
+    return true
 };
