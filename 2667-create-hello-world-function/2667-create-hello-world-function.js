@@ -1,9 +1,10 @@
 /**
  * @return {Function}
  */
-var createHelloWorld = () => {
-    return () => "Hello World";
-        
+var createHelloWorld = function() {
+    return function(...args) {
+        return "Hello World";
+    }
 };
 
 /**
